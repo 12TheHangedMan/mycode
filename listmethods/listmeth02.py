@@ -19,6 +19,9 @@ print(proto.count("dns"))
 
 #try to demonstrate list.insert(i, x)
 #this following line is going to insert element x into i position
-proto.insert(len(proto)-1, "IPV4")
+proto.insert(len(proto), "IPV4")
 print(proto)
+
+#try to play with something I didn't use before, which is list.index(x[,start[,end]])
+print(proto.index("dns"))
 
