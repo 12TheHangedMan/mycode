@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Trivia</title>
+        <style>
+            .fail_to_load {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <form action = "/trivia_game" method = "POST">
+            <p><h3>Hello! {{ player }}</h3></p>
+            {% if err %}
+            <p><h3 class="fail_to_load">{{ err }}</h3></p>
+            {% else %}
+            <p><h3>Question: </h3></p>
+            <p><h3>{{ question | safe }} </h3></p>
+            {% endif %}
+
+            {% for answer in answers_list %}
+            <p><input type="radio" name="answer" value= "{{answer}}" /> {{answer | safe}}</p>
+            {% endfor %}
+
+            <p><input type = "submit"/></p>
+        </form>
+    </body>
+</html>

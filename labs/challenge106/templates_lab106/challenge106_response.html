@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Result</title>
+    <style></style>
+  </head>
+
+  <body>
+    {% if correct_answer | safe == player_answer %}
+    <p>correct</p>
+    {% else %}
+    <p>incorrect</p>
+    {% endif %}
+    <p>{{correct_answer}}</p>
+    <p>{{player_answer}}</p>
+  </body>
+</html>

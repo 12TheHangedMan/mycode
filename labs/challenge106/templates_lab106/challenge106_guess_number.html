@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Trivia</title>
+        <style>
+            h4 {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <form action = "/guess_number" method = "POST">
+            <p><h3>Hello! {{ p1.get("player_name") }}</h3></p>       
+            <p><h3>There is a random number between 1 and {{ p1.get("upper_limit") }}, guess what is it</h3></p>
+            <p><h3>You have {{ p1.get("hp")+1 }} chances left</h3></p>
+            {% if player_answer != "n/a" and player_answer != p1.get("random_number") %}
+                {% if player_answer == "invalid" %}
+                <h4>incorrect</h4>
+                {% else %}
+                    {% if player_answer < p1.get("random_number") %}
+                    <h4>{{ player_answer }} is smaller than the nubmer </h4>
+                    {% else %}
+                    <h4>{{ player_answer }} is bigger than the nubmer </h4>
+                    {% endif %}
+                {% endif %}
+            {% elif player_answer == p1.get("random_number") %}
+            <h4>{{ player_answer }} is the nubmer, You Win</h4>
+            {% endif %}
+            <p><input type="text" name="answer" value= "{{answer}}" required /></p>
+            <p><input type = "submit"/></p>
+        </form>
+    </body>
+</html>
